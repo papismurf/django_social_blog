@@ -11,3 +11,9 @@ class Posts(models.Model):
     )
     creation_date = models.DateTimeField(auto_now_add=True)
     url = models.URLField()
+    upvotes = models.ManyToManyField(User, through='Upvote')
+
+
+class Upvote(models.Model):
+    post = models.ForeignKey(Posts, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='upvotes', on_delete=models.CASCADE)
