@@ -11,6 +11,7 @@ class Posts(models.Model):
     )
     creation_date = models.DateTimeField(auto_now_add=True)
     url = models.URLField()
+    title = models.CharField(max_length=256)
     upvotes = models.ManyToManyField(User, through='PostUpvote')
 
 
@@ -32,3 +33,7 @@ class Comment(models.Model):
                                null=True, default=None)
     content = models.TextField(null=True)
 
+
+class CommentUpvote(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='comment_upvotes', on_delete=models.CASCADE)
