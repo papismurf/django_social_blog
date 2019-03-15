@@ -12,7 +12,7 @@ class Posts(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     url = models.URLField()
     title = models.CharField(max_length=256)
-    upvotes = models.ManyToManyField(User, through='PostUpvote')
+    upvotes = models.ManyToManyField(User, through='PostUpvote', related_name='posts_upvotes')
 
 
 class PostUpvote(models.Model):
