@@ -17,3 +17,18 @@ class Posts(models.Model):
 class PostUpvote(models.Model):
     post = models.ForeignKey(Posts, on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='upvotes', on_delete=models.CASCADE)
+
+
+class Comment(models.Model):
+    creation_date = models.DateTimeField(auto_now_add=True)
+    creator = models.ForeignKey(
+        User,
+        related_name='comments',
+        on_delete=models.SET_NULL,
+        null=True,
+    )
+    post = models.ForeignKey(Posts, related_name='comments', on_delete=models.CASCADE)
+    parent = models.ForeignKey('Comment', related_name='replies', on_delete=models.CASCADE,
+                               null=True, default=None)
+    content = models.TextField(null=True)
+
