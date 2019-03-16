@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 ecb6b3e9b3eb7fa91a51dd8749f5f26ca32e1c65 David Brown <browndj24@gmail.com> 1552612108 +0000	commit (initial): initial commit
+ecb6b3e9b3eb7fa91a51dd8749f5f26ca32e1c65 b3cb44f8b510959ebd06c6110dda3030c70b9d27 David Brown <browndj24@gmail.com> 1552635840 +0000	commit: changed apps.py posts > blog.posts
+b3cb44f8b510959ebd06c6110dda3030c70b9d27 a0896ccdfcbc2b633c4c0c65e16baad80e5e04cd David Brown <browndj24@googlemail.com> 1552643735 +0000	commit: added blog.posts to installed apps
+a0896ccdfcbc2b633c4c0c65e16baad80e5e04cd a10b9914d48750209cdf2b095454336c354e97d2 David Brown <browndj24@googlemail.com> 1552660848 +0000	commit: created Posts model
+a10b9914d48750209cdf2b095454336c354e97d2 8f047aca4d5d2f3a432f07ea6e01fd167fdf13b5 David Brown <browndj24@googlemail.com> 1552661045 +0000	commit: added url field to Posts model
+8f047aca4d5d2f3a432f07ea6e01fd167fdf13b5 96af9fd5b6566ca37362d2c3ca1c3ce69dc07571 David Brown <browndj24@googlemail.com> 1552661309 +0000	commit: modified creator field to Posts model
+96af9fd5b6566ca37362d2c3ca1c3ce69dc07571 42a2f738d8052c6367028a8b6886b0f692d1a100 David Brown <browndj24@googlemail.com> 1552662066 +0000	commit: added .idea directory to gitignore
+42a2f738d8052c6367028a8b6886b0f692d1a100 35de541076769de04eac258ed754c9785955a807 David Brown <browndj24@googlemail.com> 1552663139 +0000	commit: added upvote model and added upvote field to Posts model
+35de541076769de04eac258ed754c9785955a807 4533ad91c696815f4accac7cbdb627f3920b321c David Brown <browndj24@googlemail.com> 1552663670 +0000	commit: renamed Upvote model to PostUpvote
+4533ad91c696815f4accac7cbdb627f3920b321c 545575007914bec717317fc86ecbf12ffc32d360 David Brown <browndj24@googlemail.com> 1552669958 +0000	merge dev: Fast-forward
+545575007914bec717317fc86ecbf12ffc32d360 e5225576759ce5ffb73eb38ab0c7dd643121b1fb David Brown <browndj24@googlemail.com> 1552702692 +0000	merge dev: Fast-forward
