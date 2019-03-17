@@ -12,7 +12,7 @@ class Posts(models.Model):
         on_delete=models.SET_NULL,
         null=True
     )
-    creation_date = models.DateTimeField(auto_now_add=True)
+    publication_date = models.DateTimeField(auto_now_add=True)
     url = models.URLField()
     title = models.CharField(max_length=256)
     upvotes = models.ManyToManyField(User, through='PostUpvote', related_name='posts_upvotes')
@@ -28,7 +28,7 @@ class Comment(models.Model):
     """
     Model for Individual comments on Posts
     """
-    creation_date = models.DateTimeField(auto_now_add=True)
+    publication_date = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey(
         User,
         related_name='comments',
