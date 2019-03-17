@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 
 class Posts(models.Model):
+    """
+    Model for User Posts
+    """
     creator = models.ForeignKey(
         User, related_name='posts',
         on_delete=models.SET_NULL,
@@ -16,11 +19,15 @@ class Posts(models.Model):
 
 
 class PostUpvote(models.Model):
+    """Model for Upvotes on a Post"""
     post = models.ForeignKey(Posts, on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='upvotes', on_delete=models.CASCADE)
 
 
 class Comment(models.Model):
+    """
+    Model for Individual comments on Posts
+    """
     creation_date = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey(
         User,
@@ -35,5 +42,8 @@ class Comment(models.Model):
 
 
 class CommentUpvote(models.Model):
+    """
+    Model for Upvotes on individual comments
+    """
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name='comment_upvotes', on_delete=models.CASCADE)
