@@ -27,6 +27,10 @@ class Posts(models.Model):
             return f'{how_long.seconds} second{pluralize(how_long.seconds)} ago'
         elif how_long < timedelta(hours=1):
             return f'{how_long.minutes} minute{pluralize(how_long.minutes)} ago'
+        elif how_long < timedelta(days=1):
+            return f'{how_long.hours} hour{pluralize(how_long.hours)} ago'
+        else:
+            return f'{how_long.days} day{pluralize(how_long.days)} ago'
 
 
 class PostUpvote(models.Model):
