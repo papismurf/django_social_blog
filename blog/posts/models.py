@@ -1,5 +1,8 @@
+from datetime import datetime, timedelta
+
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import pluralize
 # Create your models here.
 
 
@@ -16,6 +19,14 @@ class Posts(models.Model):
     url = models.URLField()
     title = models.CharField(max_length=256)
     upvotes = models.ManyToManyField(User, through='PostUpvote', related_name='posts_upvotes')
+
+    # Method to show time since post was published
+    def how_long_ago(self):
+        how_long = datetime.now() - self.publication_date
+        if how_long < timedelta(minutes=1):
+            return f'{how_long.seconds} second{pluralize(how_long.seconds)} ago'
+        elif how_long < timedelta(hours=1):
+            return f'{how_long.minutes} minute{pluralize(how_long.minutes)} ago'
 
 
 class PostUpvote(models.Model):
