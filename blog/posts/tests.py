@@ -44,7 +44,7 @@ class PostsTestCase(TestCase):
             self.assertEqual(post.how_long_ago(), '1 minute ago')
 
     def test_how_long_multiple_minutes(self):
-        creation = datetime(year=1966, month=6, days=6)
+        creation = datetime(year=1966, month=6, day=6)
 
         post = Posts(publication_date=creation)
         with mock.patch('blog.posts.models.datetime') as dt:
