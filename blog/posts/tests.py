@@ -30,6 +30,24 @@ class PostsTestCase(TestCase):
 
         post = Posts(publication_date=creation)
         with mock.patch('blog.posts.models.datetime') as dt:
-            dt.now =mock.Mock()
-            dt.now.return_value = creation +timedelta(seconds=42)
+            dt.now = mock.Mock()
+            dt.now.return_value = creation + timedelta(seconds=42)
             self.assertEqual(post.how_long_ago(), '42 seconds ago')
+
+    def test_how_long_1_minute(self):
+        creation = datetime(year=1966, month=6, day=6)
+
+        post = Posts(publication_date=creation)
+        with mock.patch('blog,posts.models.datetime') as dt:
+            dt.now = mock.Mock()
+            dt.now.return_value = creation + timedelta(minutes=1)
+            self.assertEqual(post.how_long_ago(), '1 minute ago')
+
+    def test_how_long_multiple_minutes(self):
+        creation = datetime(year=1966, month=6, days=6)
+
+        post = Posts(publication_date=creation)
+        with mock.patch('blog.posts.models.datetime') as dt:
+            dt.now = mock.Mock()
+            dt.now.return_value = creation + timedelta(minutes=42)
+            self.assertEqual(post.how_long_ago(), '42 minutes ago')
