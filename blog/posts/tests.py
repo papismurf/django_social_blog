@@ -38,7 +38,7 @@ class PostsTestCase(TestCase):
         creation = datetime(year=1966, month=6, day=6)
 
         post = Posts(publication_date=creation)
-        with mock.patch('blog,posts.models.datetime') as dt:
+        with mock.patch('blog.posts.models.datetime') as dt:
             dt.now = mock.Mock()
             dt.now.return_value = creation + timedelta(minutes=1)
             self.assertEqual(post.how_long_ago(), '1 minute ago')
