@@ -51,3 +51,39 @@ class PostsTestCase(TestCase):
             dt.now = mock.Mock()
             dt.now.return_value = creation + timedelta(minutes=42)
             self.assertEqual(post.how_long_ago(), '42 minutes ago')
+
+    def test_how_long_1_hour(self):
+        creation = datetime(year=1966, month=6, day=6)
+
+        post = Posts(publication_date=creation)
+        with mock.patch('blog.posts.models.datetime') as dt:
+            dt.now = mock.Mock()
+            dt.now.return_value = creation + timedelta(hours=1)
+            self.assertEqual(post.how_long_ago(), '1 hour ago')
+
+    def test_how_long_multiple_hours(self):
+        creation = datetime(year=1966, month=6, day=6)
+
+        post = Posts(publication_date=creation)
+        with mock.patch('blog.posts.models.datetime') as dt:
+            dt.now = mock.Mock()
+            dt.now.return_value = creation + timedelta(hours=20)
+            self.assertEqual(post.how_long_ago(), '20 hours ago')
+
+    def test_how_long_1_day(self):
+        creation = datetime(year=1966, month=6, day=6)
+
+        post = Posts(publication_date=creation)
+        with mock.patch('blog.posts.models.datetime') as dt:
+            dt.now = mock.Mock()
+            dt.now.return_value = creation + timedelta(days=1)
+            self.assertEqual(post.how_long_ago(), '1 day ago')
+
+    def test_how_long_multiple_days(self):
+        creation = datetime(year=1966, month=6, day=6)
+
+        post = Posts(publication_date=creation)
+        with mock.patch('blog.posts.models.datetime') as dt:
+            dt.now = mock.Mock()
+            dt.now.return_value = creation + timedelta(days=20)
+            self.assertEqual(post.how_long_ago(), '20 days ago')
