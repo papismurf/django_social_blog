@@ -1,0 +1,17 @@
+language: python
+python:
+  - "3.6"
+  - "3.6-dev" # 3.6 development branch
+
+# install dependencies
+install:
+  - pip install -r requirements.txt
+
+# command to run tests
+script:
+  - ./manage.py test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "ENCRYPTED_KEY"
