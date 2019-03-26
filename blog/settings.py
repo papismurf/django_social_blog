@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Local
-    'blog.posts.apps.PostsConfig'
+    'blog.posts.apps.PostsConfig',
+    'searchapp'
 
 ]
 
